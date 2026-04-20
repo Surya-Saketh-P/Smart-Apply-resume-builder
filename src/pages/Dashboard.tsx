@@ -29,19 +29,19 @@ const Dashboard: React.FC = () => {
 
   if (loading) return (
     <div className="flex h-[calc(100vh-64px)] items-center justify-center">
-      <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary-600 border-t-transparent shadow-sm"></div>
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-black border-t-transparent"></div>
     </div>
   );
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="flex items-center justify-between mb-8">
+    <div className="mx-auto max-w-7xl px-6 py-12">
+      <div className="flex items-start justify-between mb-12 border-b border-black pb-8">
         <div>
-          <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">Career Dashboard</h1>
-          <p className="mt-1 text-gray-500">Welcome back! Here's how your job hunt is progressing.</p>
+          <h1 className="text-4xl font-serif font-bold text-zinc-900 tracking-tight">Career Dashboard</h1>
+          <p className="mt-3 text-sm text-zinc-700">Your job applications at a glance.</p>
         </div>
         <Link to="/apply">
-          <Button className="h-11 px-6 text-base font-bold shadow-lg shadow-primary-200">
+          <Button className="px-8 py-3 text-base font-bold">
             <Plus className="h-5 w-5" />
             New Application
           </Button>
@@ -49,76 +49,68 @@ const Dashboard: React.FC = () => {
       </div>
 
       {!stats ? (
-        <Card className="p-16 flex flex-col items-center justify-center text-center">
-          <div className="h-24 w-24 bg-primary-50 rounded-full flex items-center justify-center mb-6">
-            <Rocket className="h-10 w-10 text-primary-500" />
+        <Card className="p-16 flex flex-col items-center justify-center text-center border-2 border-black">
+          <div className="h-24 w-24 border-2 border-black flex items-center justify-center mb-8">
+            <Rocket className="h-12 w-12 text-zinc-900" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900">Start your journey</h2>
-          <p className="mt-2 text-gray-500 max-w-md mx-auto">
-            You haven't applied to any jobs yet. Complete your profile and use the AI to tailor your first application!
+          <h2 className="text-3xl font-serif font-bold text-zinc-900">Begin your search</h2>
+          <p className="mt-4 text-sm text-zinc-700 max-w-md mx-auto leading-relaxed">
+            No applications yet. Set up your profile and use AI to tailor your first application.
           </p>
-          <div className="mt-8 flex gap-4">
+          <div className="mt-10 flex gap-3">
             <Link to="/profile">
-              <Button variant="secondary">Set Up Profile</Button>
+              <Button variant="secondary">Configure Profile</Button>
             </Link>
             <Link to="/apply">
-              <Button>Apply Now</Button>
+              <Button>Start Applying</Button>
             </Link>
           </div>
         </Card>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <Card className="p-6 bg-gradient-to-br from-white to-primary-50/30">
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-xl bg-primary-100 flex items-center justify-center">
-                  <ListChecks className="h-6 w-6 text-primary-600" />
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 divide-x divide-black border border-black">
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="p-6">
+            <Card className="border-none bg-[#FAF9F6] p-0">
+              <div className="flex flex-col gap-3">
+                <ListChecks className="h-6 w-6 text-zinc-900" />
                 <div>
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Total Apps</p>
-                  <p className="text-2xl font-black text-gray-900">{stats.total}</p>
+                  <p className="text-xs font-bold text-zinc-600 uppercase tracking-wider">Total</p>
+                  <p className="text-3xl font-serif font-bold text-zinc-900 mt-1">{stats.total}</p>
                 </div>
               </div>
             </Card>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            <Card className="p-6 bg-gradient-to-br from-white to-amber-50/30">
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-xl bg-amber-100 flex items-center justify-center">
-                  <Target className="h-6 w-6 text-amber-600" />
-                </div>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="p-6">
+            <Card className="border-none bg-[#FAF9F6] p-0">
+              <div className="flex flex-col gap-3">
+                <Target className="h-6 w-6 text-zinc-900" />
                 <div>
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Avg Match</p>
-                  <p className="text-2xl font-black text-gray-900">{stats.avgScore}%</p>
+                  <p className="text-xs font-bold text-zinc-600 uppercase tracking-wider">Avg Match</p>
+                  <p className="text-3xl font-serif font-bold text-zinc-900 mt-1">{stats.avgScore}%</p>
                 </div>
               </div>
             </Card>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-            <Card className="p-6 bg-gradient-to-br from-white to-blue-50/30">
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                  <Star className="h-6 w-6 text-blue-600" />
-                </div>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="p-6">
+            <Card className="border-none bg-[#FAF9F6] p-0">
+              <div className="flex flex-col gap-3">
+                <Star className="h-6 w-6 text-zinc-900" />
                 <div>
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Interviews</p>
-                  <p className="text-2xl font-black text-gray-900">{stats.interviews}</p>
+                  <p className="text-xs font-bold text-zinc-600 uppercase tracking-wider">Interviews</p>
+                  <p className="text-3xl font-serif font-bold text-zinc-900 mt-1">{stats.interviews}</p>
                 </div>
               </div>
             </Card>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
-            <Card className="p-6 bg-gradient-to-br from-white to-emerald-50/30">
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-xl bg-emerald-100 flex items-center justify-center">
-                  <Flame className="h-6 w-6 text-emerald-600" />
-                </div>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="p-6">
+            <Card className="border-none bg-[#FAF9F6] p-0">
+              <div className="flex flex-col gap-3">
+                <Flame className="h-6 w-6 text-zinc-900" />
                 <div>
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Offers</p>
-                  <p className="text-2xl font-black text-gray-900">{stats.offers}</p>
+                  <p className="text-xs font-bold text-zinc-600 uppercase tracking-wider">Offers</p>
+                  <p className="text-3xl font-serif font-bold text-zinc-900 mt-1">{stats.offers}</p>
                 </div>
               </div>
             </Card>
@@ -128,8 +120,8 @@ const Dashboard: React.FC = () => {
 
       {stats && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <Card className="lg:col-span-2 p-8 h-[400px]">
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">Application Status Breakdown</h3>
+          <Card className="lg:col-span-2 p-8 border-l-4 border-l-black">
+            <h3 className="text-sm font-bold text-zinc-700 uppercase tracking-widest mb-8 border-b border-black pb-4">Application Status</h3>
             <div className="h-[300px] w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -147,47 +139,45 @@ const Dashboard: React.FC = () => {
                     ))}
                   </Pie>
                   <RechartsTooltip 
-                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} 
+                    contentStyle={{ borderRadius: '0', border: '1px solid black', boxShadow: '2px 2px 0 rgba(0,0,0,1)' }} 
                   />
                 </PieChart>
               </ResponsiveContainer>
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-8 -mt-10">
+            <div className="flex flex-wrap items-center justify-center gap-6 -mt-8 pt-4 border-t border-black">
                 {stats.chartData.map(item => (
                   <div key={item.name} className="flex items-center gap-2">
-                    <div className="h-3 w-3 rounded-full" style={{ backgroundColor: item.color }} />
-                    <span className="text-xs font-bold font-mono text-gray-500">{item.name}: {item.value}</span>
+                    <div className="h-3 w-3" style={{ backgroundColor: item.color }} />
+                    <span className="text-xs font-bold text-zinc-700">{item.name}: {item.value}</span>
                   </div>
                 ))}
             </div>
           </Card>
 
-          <Card className="p-8">
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center justify-between">
-              Recent Apps <Link to="/history" className="text-primary-600 hover:underline capitalize text-[11px]">View All</Link>
-            </h3>
-            <div className="space-y-4">
+          <Card className="p-8 border-r-4 border-r-black">
+            <div className="flex items-center justify-between mb-6 border-b border-black pb-4">
+              <h3 className="text-sm font-bold text-zinc-700 uppercase tracking-widest">Recent</h3>
+              <Link to="/history" className="text-xs font-bold text-zinc-900 hover:underline">View All</Link>
+            </div>
+            <div className="space-y-4 mb-8">
               {applications.slice(0, 4).map(app => (
-                <div key={app.id} className="flex items-center justify-between p-3 rounded-xl border border-gray-100 hover:bg-gray-50 transition-colors">
+                <div key={app.id} className="flex items-center justify-between p-3 border border-black hover:bg-zinc-100 transition-colors">
                   <div className="min-w-0 flex-1">
-                    <p className="font-bold text-gray-900 truncate text-sm">{app.company}</p>
-                    <p className="text-[10px] text-gray-500 truncate">{app.role}</p>
+                    <p className="font-bold text-zinc-900 truncate text-sm">{app.company}</p>
+                    <p className="text-xs text-zinc-600 truncate mt-1">{app.role}</p>
                   </div>
-                  <div className="text-xs font-black text-gray-300 ml-4">
-                    {app.matchScore}%
+                  <div className="text-lg font-serif font-bold text-zinc-900 ml-4">
+                    {app.matchScore}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 p-6 rounded-2xl bg-primary-600 text-white relative overflow-hidden group">
-              <Rocket className="absolute -right-4 -bottom-4 h-24 w-24 text-white/10 group-hover:scale-110 transition-transform" />
-              <p className="text-sm font-extrabold mb-1">Tailor more, apply faster.</p>
-              <p className="text-xs text-white/80 mb-4">Our AI increases response rates by up to 3x.</p>
-              <Link to="/apply">
-                <Button className="w-full bg-white text-primary-600 hover:bg-white/90 border-none">
-                  Get Started
-                </Button>
+            <div className="p-6 border-2 border-black bg-white">
+              <p className="text-sm font-serif font-bold text-zinc-900 mb-2">Increase response rates.</p>
+              <p className="text-xs text-zinc-700 mb-6 leading-relaxed">Let AI tailor your applications to match each job description precisely.</p>
+              <Link to="/apply" className="w-full">
+                <Button className="w-full">Start Tailoring</Button>
               </Link>
             </div>
           </Card>

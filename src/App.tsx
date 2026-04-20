@@ -13,7 +13,7 @@ export default function App() {
   return (
     <Router>
       <AuthProvider>
-        <div className="min-h-screen bg-gray-50 flex flex-col">
+        <div className="min-h-screen bg-[#FAF9F6] flex flex-col">
           <Navbar />
           <main className="flex-1">
             <Routes>

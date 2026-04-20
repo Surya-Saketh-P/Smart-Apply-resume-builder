@@ -37,22 +37,22 @@ const Profile: React.FC = () => {
 
   if (loading) return (
     <div className="flex h-[calc(100vh-64px)] items-center justify-center">
-      <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary-600 border-t-transparent"></div>
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-black border-t-transparent"></div>
     </div>
   );
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Your Profile</h1>
-        <p className="mt-2 text-gray-600">This information will be used as context for AI-generated applications.</p>
+    <div className="mx-auto max-w-4xl px-6 py-12">
+      <div className="mb-12 border-b border-black pb-8">
+        <h1 className="text-4xl font-serif font-bold text-zinc-900 tracking-tight">Your Profile</h1>
+        <p className="mt-3 text-sm text-zinc-700">Information used by AI to tailor your applications.</p>
       </div>
 
-      <Card className="p-8">
+      <Card className="p-8 border-t-4 border-t-black">
         <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div>
-              <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+              <label className="flex items-center gap-2 text-sm font-bold text-zinc-900 mb-2">
                 <UserIcon className="h-4 w-4" /> Full Name
               </label>
               <input
@@ -60,12 +60,12 @@ const Profile: React.FC = () => {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-primary-500 transition-all outline-none"
+                className="w-full border border-black px-3 py-2.5 bg-white focus:outline-none focus:bg-zinc-100 transition-all"
                 placeholder="John Doe"
               />
             </div>
             <div>
-              <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+              <label className="flex items-center gap-2 text-sm font-bold text-zinc-900 mb-2">
                 <Mail className="h-4 w-4" /> Professional Email
               </label>
               <input
@@ -73,65 +73,65 @@ const Profile: React.FC = () => {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-primary-500 transition-all outline-none"
+                className="w-full border border-black px-3 py-2.5 bg-white focus:outline-none focus:bg-zinc-100 transition-all"
                 placeholder="john@example.com"
               />
             </div>
           </div>
 
-          <div>
-            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
-              <Laptop className="h-4 w-4" /> Skills (Comma separated)
+          <div className="border-t border-black pt-8">
+            <label className="flex items-center gap-2 text-sm font-bold text-zinc-900 mb-2">
+              <Laptop className="h-4 w-4" /> Skills (Comma-separated)
             </label>
             <input
               type="text"
               value={skillsInput}
               onChange={(e) => setSkillsInput(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-primary-500 transition-all outline-none"
+              className="w-full border border-black px-3 py-2.5 bg-white focus:outline-none focus:bg-zinc-100 transition-all"
               placeholder="React, TypeScript, Node.js, AWS..."
             />
           </div>
 
           <div>
-            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-bold text-zinc-900 mb-2">
               <GraduationCap className="h-4 w-4" /> Education
             </label>
             <textarea
               rows={3}
               value={formData.education}
               onChange={(e) => setFormData({ ...formData, education: e.target.value })}
-              className="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-primary-500 transition-all outline-none resize-none"
+              className="w-full border border-black px-3 py-2.5 bg-white focus:outline-none focus:bg-zinc-100 transition-all resize-none"
               placeholder="B.Tech in Computer Science, 2024..."
             />
           </div>
 
           <div>
-            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-bold text-zinc-900 mb-2">
               <Briefcase className="h-4 w-4" /> Experience
             </label>
             <textarea
               rows={5}
               value={formData.experience}
               onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-              className="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-primary-500 transition-all outline-none resize-none"
+              className="w-full border border-black px-3 py-2.5 bg-white focus:outline-none focus:bg-zinc-100 transition-all resize-none"
               placeholder="Software Engineer Intern at Google (Summer 2023)..."
             />
           </div>
 
           <div>
-            <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-bold text-zinc-900 mb-2">
               <Linkedin className="h-4 w-4" /> LinkedIn Profile URL
             </label>
             <input
               type="url"
               value={formData.linkedin}
               onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
-              className="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-primary-500 transition-all outline-none"
+              className="w-full border border-black px-3 py-2.5 bg-white focus:outline-none focus:bg-zinc-100 transition-all"
               placeholder="https://linkedin.com/in/johndoe"
             />
           </div>
 
-          <div className="flex items-center gap-4 pt-4">
+          <div className="flex items-center gap-4 pt-4 border-t border-black">
             <Button type="submit" disabled={saving} className="min-w-[120px]">
               {saving ? (
                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
@@ -149,10 +149,10 @@ const Profile: React.FC = () => {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0 }}
-                  className="flex items-center gap-2 text-emerald-600 font-medium text-sm"
+                  className="flex items-center gap-2 text-zinc-900 font-medium text-sm"
                 >
                   <Check className="h-4 w-4" />
-                  Saved successfully
+                  Saved
                 </motion.div>
               )}
             </AnimatePresence>
