@@ -75,7 +75,6 @@ const Apply: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-        {/* Left: Input Section */}
         <section className="space-y-8">
           <Card className="p-8 border-l-4 border-l-black space-y-6">
             <div className="grid grid-cols-2 gap-4">
@@ -139,7 +138,6 @@ const Apply: React.FC = () => {
           </Card>
         </section>
 
-        {/* Right: Results Section */}
         <section className="space-y-8">
           <AnimatePresence mode="wait">
             {!result && !analyzing && (
@@ -184,7 +182,6 @@ const Apply: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="space-y-6 pb-12"
               >
-                {/* Match Score */}
                 <Card className="p-6 border-t-4 border-t-black">
                   <div className="flex items-start justify-between mb-4 border-b border-black pb-4">
                     <h3 className="text-xs font-bold text-zinc-700 uppercase tracking-wider">Match Analysis</h3>
@@ -196,7 +193,6 @@ const Apply: React.FC = () => {
                   <p className="text-zinc-800 leading-relaxed text-sm">{result.matchReason}</p>
                 </Card>
 
-                {/* Resume Bullets */}
                 <Card className="p-6 border-t-4 border-t-black">
                   <h3 className="text-xs font-bold text-zinc-700 uppercase tracking-wider mb-4 border-b border-black pb-4">Resume Bullets</h3>
                   <ul className="space-y-3">
@@ -209,7 +205,6 @@ const Apply: React.FC = () => {
                   </ul>
                 </Card>
 
-                {/* Cover Letter */}
                 <Card className="p-6 border-t-4 border-t-black">
                   <div className="flex items-center justify-between mb-4 border-b border-black pb-4">
                     <h3 className="text-xs font-bold text-zinc-700 uppercase tracking-wider">Cover Letter</h3>

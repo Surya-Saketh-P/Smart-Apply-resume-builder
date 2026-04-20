@@ -78,7 +78,6 @@ const History: React.FC = () => {
         </div>
       )}
 
-      {/* Detail Overlay */}
       <AnimatePresence>
         {selectedApp && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 overflow-y-auto">

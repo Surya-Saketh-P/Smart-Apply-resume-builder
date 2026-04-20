@@ -17,10 +17,8 @@ export default function App() {
           <Navbar />
           <main className="flex-1">
             <Routes>
-              {/* Public Route */}
               <Route path="/login" element={<Login />} />
               
-              {/* Protected Routes */}
               <Route path="/" element={
                 <ProtectedRoute>
                   <Dashboard />
@@ -42,7 +40,6 @@ export default function App() {
                 </ProtectedRoute>
               } />
               
-              {/* Fallback */}
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>

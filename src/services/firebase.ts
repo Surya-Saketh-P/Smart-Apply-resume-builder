@@ -7,7 +7,6 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 export const auth = getAuth(app);
 
-// Connectivity check as per instructions
 async function testConnection() {
   try {
     await getDocFromServer(doc(db, 'test', 'connection'));

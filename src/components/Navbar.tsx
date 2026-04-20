@@ -66,8 +66,6 @@ const Navbar: React.FC = () => {
             Logout
           </button>
         </div>
-
-        {/* Mobile menu could be added here, but for now focusing on desktop precision as requested */}
       </div>
     </nav>
   );
