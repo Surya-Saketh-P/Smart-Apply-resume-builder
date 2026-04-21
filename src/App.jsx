@@ -8,43 +8,32 @@ import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Apply from './pages/Apply';
 import History from './pages/History';
-
 export default function App() {
-  return (
-    <Router>
+    return (<Router>
       <AuthProvider>
         <div className="min-h-screen bg-[#FAF9F6] flex flex-col">
           <Navbar />
           <main className="flex-1">
             <Routes>
-              <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<Login />}/>
               
-              <Route path="/" element={
-                <ProtectedRoute>
+              <Route path="/" element={<ProtectedRoute>
                   <Dashboard />
-                </ProtectedRoute>
-              } />
-              <Route path="/profile" element={
-                <ProtectedRoute>
+                </ProtectedRoute>}/>
+              <Route path="/profile" element={<ProtectedRoute>
                   <Profile />
-                </ProtectedRoute>
-              } />
-              <Route path="/apply" element={
-                <ProtectedRoute>
+                </ProtectedRoute>}/>
+              <Route path="/apply" element={<ProtectedRoute>
                   <Apply />
-                </ProtectedRoute>
-              } />
-              <Route path="/history" element={
-                <ProtectedRoute>
+                </ProtectedRoute>}/>
+              <Route path="/history" element={<ProtectedRoute>
                   <History />
-                </ProtectedRoute>
-              } />
+                </ProtectedRoute>}/>
               
-              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<Navigate to="/" replace/>}/>
             </Routes>
           </main>
         </div>
       </AuthProvider>
-    </Router>
-  );
+    </Router>);
 }
