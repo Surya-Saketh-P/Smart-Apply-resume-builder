@@ -124,7 +124,7 @@ const Login: React.FC = () => {
               className="w-full flex items-center justify-center gap-2 rounded-none bg-zinc-900 py-3 px-4 text-sm font-bold text-white hover:bg-black border border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
-                <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                <div className="h-4 w-4 animate-spin rounded-none border-2 border-white border-t-transparent" />
               ) : (
                 <>
                   {isLogin ? 'Sign In' : 'Create Account'}

@@ -37,7 +37,7 @@ const Profile: React.FC = () => {
 
   if (loading) return (
     <div className="flex h-[calc(100vh-64px)] items-center justify-center">
-      <div className="h-8 w-8 animate-spin rounded-full border-2 border-black border-t-transparent"></div>
+      <div className="h-8 w-8 animate-spin rounded-none border-2 border-black border-t-transparent"></div>
     </div>
   );
 
@@ -134,7 +134,7 @@ const Profile: React.FC = () => {
           <div className="flex items-center gap-4 pt-4 border-t border-black">
             <Button type="submit" disabled={saving} className="min-w-[120px]">
               {saving ? (
-                <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                <div className="h-4 w-4 animate-spin rounded-none border-2 border-white border-t-transparent" />
               ) : (
                 <>
                   <Save className="h-4 w-4" />

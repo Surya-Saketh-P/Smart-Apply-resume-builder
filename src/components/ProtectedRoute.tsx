@@ -7,8 +7,8 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
 
   if (loading) {
     return (
-      <div className="flex h-screen w-full items-center justify-center bg-gray-50">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary-600 border-t-transparent shadow-sm"></div>
+      <div className="flex h-screen w-full items-center justify-center bg-[#FAF9F6]">
+        <div className="h-8 w-8 animate-spin rounded-none border-2 border-black border-t-transparent"></div>
       </div>
     );
   }
